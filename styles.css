@@ -280,34 +280,6 @@ ul {
     }
 }
 
-.hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: var(--space-sm);
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    padding: var(--space-sm) var(--space-lg);
-    border-radius: 100px;
-    font-size: 0.85rem;
-    font-family: var(--font-mono);
-    color: var(--color-text-secondary);
-    margin-bottom: var(--space-xl);
-    animation: fadeInUp 0.8s ease-out 0.1s both;
-}
-
-.badge-dot {
-    width: 8px;
-    height: 8px;
-    background: var(--color-accent);
-    border-radius: 50%;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0%, 100% { opacity: 1; }
-    50% { opacity: 0.5; }
-}
-
 .hero-title {
     font-family: var(--font-display);
     font-size: clamp(4rem, 12vw, 9rem);
@@ -1366,18 +1338,6 @@ ul {
 }
 
 @media (max-width: 768px) {
-    .nav-toggle.active span:nth-child(1) {
-        transform: rotate(45deg) translate(5px, 5px);
-    }
-    
-    .nav-toggle.active span:nth-child(2) {
-        opacity: 0;
-    }
-    
-    .nav-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg) translate(5px, -5px);
-    }
-    
     .hero-stats {
         grid-template-columns: repeat(2, 1fr);
         gap: var(--space-lg);
@@ -2106,7 +2066,21 @@ textarea:focus-visible {
     
     .nav-toggle {
         display: flex;
-        z-index: 1001;
+        z-index: 10002;
+        position: relative;
+    }
+    
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(45deg) translate(6px, 6px);
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(-10px);
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(-45deg) translate(6px, -6px);
     }
     
     .nav-links {
@@ -2115,41 +2089,47 @@ textarea:focus-visible {
         left: 0;
         right: 0;
         bottom: 0;
+        width: 100vw;
+        height: 100vh;
         background: var(--color-bg-primary);
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        gap: var(--space-xl);
-        transform: translateY(-100%);
+        gap: var(--space-2xl);
         opacity: 0;
         visibility: hidden;
-        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        z-index: 999;
+        transition: all 0.3s ease;
+        z-index: 10001;
     }
     
     .nav-links.active {
-        transform: translateY(0);
         opacity: 1;
         visibility: visible;
     }
     
     .nav-links a {
-        font-size: 2rem;
+        font-size: 2.5rem;
         font-family: var(--font-display);
         letter-spacing: 0.05em;
-        padding: var(--space-sm) 0;
+        padding: var(--space-md) 0;
         border-bottom: none;
         color: var(--color-text-primary);
+        text-transform: uppercase;
+        transition: color 0.2s ease;
+    }
+    
+    .nav-links a:hover {
+        color: var(--color-accent);
     }
     
     .nav-links a::after {
-        bottom: 0;
+        display: none;
     }
     
     .nav-cta {
-        margin-top: var(--space-md);
-        padding: var(--space-md) var(--space-2xl);
-        font-size: 1.25rem;
+        margin-top: var(--space-lg);
+        padding: var(--space-lg) var(--space-3xl);
+        font-size: 1.5rem;
         font-family: var(--font-display);
     }
     
@@ -2157,13 +2137,6 @@ textarea:focus-visible {
     .hero {
         padding: 100px var(--container-padding) var(--space-2xl);
         min-height: auto;
-    }
-    
-    .hero-badge {
-        font-size: 0.7rem;
-        padding: var(--space-xs) var(--space-md);
-        text-align: center;
-        line-height: 1.4;
     }
     
     .hero-title {
@@ -2526,11 +2499,6 @@ textarea:focus-visible {
         padding-top: 90px;
     }
     
-    .hero-badge {
-        font-size: 0.65rem;
-        padding: var(--space-xs) var(--space-sm);
-    }
-    
     .hero-title {
         font-size: clamp(2.2rem, 14vw, 3.5rem);
     }
@@ -2633,17 +2601,12 @@ textarea:focus-visible {
     }
     
     .hero-content,
-    .hero-badge,
     .hero-subtitle,
     .hero-actions,
     .hero-stats {
         animation: none;
         opacity: 1;
         transform: none;
-    }
-    
-    .badge-dot {
-        animation: none;
     }
 }
 
