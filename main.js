@@ -1,6 +1,6 @@
 /**
  * Forge Structural - Main JavaScript
- * Handles navigation, scroll effects, FAQ toggles, and form interactions
+ * Handles navigation, scroll effects, and form interactions
  */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Apply fade-in animation to elements
     const animatedElements = document.querySelectorAll(
-        '.service-card, .project-card, .testimonial-card, .value-item, .process-step, .credential, .deliverable-item, .area-region, .faq-item, .trust-item'
+        '.service-card, .project-card, .testimonial-card, .value-item, .process-step, .credential, .deliverable-item, .area-region, .trust-item'
     );
     
     animatedElements.forEach((el, index) => {
@@ -94,39 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('.section-header, .about-content, .contact-info, .cta-content').forEach(el => {
         el.classList.add('fade-in');
         fadeInObserver.observe(el);
-    });
-    
-    // =============================================
-    // FAQ ACCORDION (OPTIONAL ENHANCEMENT)
-    // =============================================
-    const faqItems = document.querySelectorAll('.faq-item');
-    
-    faqItems.forEach(item => {
-        const question = item.querySelector('h4');
-        const answer = item.querySelector('p');
-        
-        // Add toggle functionality if you want accordion style
-        // Currently showing all answers - uncomment below for accordion
-        /*
-        answer.style.display = 'none';
-        question.style.cursor = 'pointer';
-        
-        question.addEventListener('click', () => {
-            const isOpen = answer.style.display === 'block';
-            
-            // Close all other answers
-            faqItems.forEach(otherItem => {
-                otherItem.querySelector('p').style.display = 'none';
-                otherItem.classList.remove('active');
-            });
-            
-            // Toggle current answer
-            if (!isOpen) {
-                answer.style.display = 'block';
-                item.classList.add('active');
-            }
-        });
-        */
     });
     
     // =============================================
