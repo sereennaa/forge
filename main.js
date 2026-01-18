@@ -133,20 +133,46 @@ document.addEventListener('DOMContentLoaded', () => {
             Sending...
         `;
         
-        // Simulate form submission (replace with actual endpoint)
-        await new Promise(resolve => setTimeout(resolve, 1500));
+        // Submit form to Formsubmit.co
+        const formData = new FormData(contactForm);
         
-        // Show success state
-        submitBtn.innerHTML = `
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M20 6L9 17l-5-5"/>
-            </svg>
-            Message Sent!
-        `;
-        submitBtn.style.background = '#22c55e';
-        
-        // Reset form
-        contactForm.reset();
+        try {
+            const response = await fetch('https://formsubmit.co/ajax/serenahaddad516@gmail.com', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            const result = await response.json();
+            
+            if (response.ok && result.success) {
+                // Show success state
+                submitBtn.innerHTML = `
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M20 6L9 17l-5-5"/>
+                    </svg>
+                    Message Sent!
+                `;
+                submitBtn.style.background = '#22c55e';
+                
+                // Reset form
+                contactForm.reset();
+            } else {
+                throw new Error('Form submission failed');
+            }
+        } catch (error) {
+            // Show error state
+            submitBtn.innerHTML = `
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+                Failed to Send
+            `;
+            submitBtn.style.background = '#ef4444';
+            console.error('Form submission error:', error);
+        }
         
         // Reset button after 3 seconds
         setTimeout(() => {

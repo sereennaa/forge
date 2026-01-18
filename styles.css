@@ -463,7 +463,18 @@ ul {
    ============================================= */
 .services {
     padding: var(--space-4xl) 0;
-    background: var(--color-bg-secondary);
+    background: linear-gradient(180deg, var(--color-bg-secondary) 0%, var(--color-bg-primary) 100%);
+    position: relative;
+}
+
+.services::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
 }
 
 .services-grid {
@@ -595,13 +606,25 @@ ul {
    ============================================= */
 .about {
     padding: var(--space-4xl) 0;
+    background: linear-gradient(180deg, var(--color-bg-tertiary) 0%, var(--color-bg-secondary) 50%, var(--color-bg-primary) 100%);
+    position: relative;
+}
+
+.about::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-accent), transparent);
 }
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1.2fr 0.8fr;
     gap: var(--space-3xl);
-    align-items: center;
+    align-items: start;
 }
 
 .about-content .section-tag,
@@ -679,80 +702,56 @@ ul {
     color: var(--color-text-tertiary);
 }
 
-.about-visual {
+.about-credentials {
     display: flex;
-    justify-content: center;
-}
-
-.visual-card {
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-xl);
-    padding: var(--space-2xl);
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    max-width: 450px;
-}
-
-.visual-pattern {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 200px;
-    height: 200px;
-    background: radial-gradient(circle at top right, var(--color-accent-glow) 0%, transparent 60%);
-}
-
-.visual-content {
-    position: relative;
-    display: flex;
-    flex-direction: column;
     gap: var(--space-lg);
 }
 
-.credential {
-    display: flex;
-    align-items: flex-start;
-    gap: var(--space-md);
-    padding: var(--space-lg);
-    background: var(--color-bg-elevated);
-    border-radius: var(--radius-md);
+.credential-card {
+    flex: 1;
+    padding: var(--space-xl);
+    background: linear-gradient(145deg, var(--color-bg-card) 0%, var(--color-bg-elevated) 100%);
     border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    text-align: center;
     transition: all var(--transition-base);
+    position: relative;
+    overflow: hidden;
 }
 
-.credential:hover {
+.credential-card::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--color-accent);
+    transform: scaleX(0);
+    transition: transform var(--transition-base);
+}
+
+.credential-card:hover {
     border-color: var(--color-accent);
-    background: linear-gradient(135deg, var(--color-bg-elevated) 0%, var(--color-accent-glow) 100%);
-    transform: translateX(8px);
+    transform: translateY(-4px);
 }
 
-.credential:hover .credential-icon {
-    transform: scale(1.1) rotate(360deg);
+.credential-card:hover::before {
+    transform: scaleX(1);
 }
 
-.credential-icon {
+.credential-number {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
     color: var(--color-accent);
-    font-size: 1.5rem;
-    flex-shrink: 0;
-    transition: transform var(--transition-slow);
+    margin-bottom: var(--space-xs);
+    letter-spacing: 0.02em;
 }
 
-.credential-text {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-xs);
-}
-
-.credential-title {
-    font-weight: 600;
-    font-size: 1rem;
-}
-
-.credential-desc {
+.credential-label {
     font-size: 0.85rem;
-    color: var(--color-text-tertiary);
+    color: var(--color-text-secondary);
+    line-height: 1.4;
 }
 
 /* =============================================
@@ -760,7 +759,18 @@ ul {
    ============================================= */
 .process {
     padding: var(--space-4xl) 0;
-    background: var(--color-bg-secondary);
+    background: linear-gradient(180deg, var(--color-bg-primary) 0%, var(--color-bg-tertiary) 100%);
+    position: relative;
+}
+
+.process::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--color-border-light), transparent);
 }
 
 .process-timeline {
@@ -1512,8 +1522,8 @@ ul {
     50% { transform: translateY(-10px); }
 }
 
-.visual-card {
-    animation: float 6s ease-in-out infinite;
+.credential-card {
+    animation: none;
 }
 
 /* Gradient border animation */
@@ -1948,42 +1958,6 @@ textarea:focus-visible {
 }
 
 /* =============================================
-   TECH STACK
-   ============================================= */
-.tech-stack {
-    margin-top: var(--space-xl);
-    padding: var(--space-lg);
-    background: var(--color-bg-elevated);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-}
-
-.tech-stack h4 {
-    font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--color-text-tertiary);
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: var(--space-md);
-}
-
-.tech-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: var(--space-sm);
-}
-
-.tech-items span {
-    padding: var(--space-xs) var(--space-md);
-    background: var(--color-bg-card);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-sm);
-    font-size: 0.85rem;
-    color: var(--color-text-secondary);
-    font-family: var(--font-mono);
-}
-
-/* =============================================
    EMERGENCY CONTACT
    ============================================= */
 .emergency-contact {
@@ -2314,16 +2288,16 @@ textarea:focus-visible {
         padding: var(--space-lg);
     }
     
-    .visual-card {
+    .about-credentials {
+        flex-direction: column;
+    }
+    
+    .credential-card {
         padding: var(--space-lg);
     }
     
-    .credential {
-        padding: var(--space-md);
-    }
-    
-    .tech-stack {
-        padding: var(--space-md);
+    .credential-number {
+        font-size: 1.5rem;
     }
     
     /* Process Mobile */
