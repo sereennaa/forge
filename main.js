@@ -137,7 +137,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const formData = new FormData(contactForm);
         
         try {
-            const response = await fetch('https://formsubmit.co/ajax/serenahaddad516@gmail.com', {
+            const response = await fetch('https://formsubmit.co/ajax/info@forgestructural.ca', {
                 method: 'POST',
                 body: formData,
                 headers: {
@@ -205,6 +205,10 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const animateCounter = (element) => {
         const text = element.textContent;
+        const shouldAnimate = /^\d+\+?$|^\d+h$|^\d+%$/.test(text.trim());
+        if (!shouldAnimate) {
+            return;
+        }
         const hasPlus = text.includes('+');
         const hasPercent = text.includes('%');
         const hasH = text.includes('h');
