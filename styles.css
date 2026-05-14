@@ -12,10 +12,10 @@
     --color-bg-card: #18181b;
     --color-bg-elevated: #1c1c20;
     
-    --color-accent: #f59e0b;
-    --color-accent-light: #fbbf24;
-    --color-accent-dark: #d97706;
-    --color-accent-glow: rgba(245, 158, 11, 0.15);
+    --color-accent: #2A7E9E;
+    --color-accent-light: #2A7E9E;
+    --color-accent-dark: #236A85;
+    --color-accent-glow: rgba(42, 126, 158, 0.15);
     
     --color-text-primary: #fafafa;
     --color-text-secondary: #a1a1aa;
@@ -203,7 +203,7 @@ ul {
 }
 
 .nav-cta:hover {
-    background: var(--color-accent-light);
+    background: var(--color-accent-dark);
 }
 
 .nav-cta::after {
@@ -251,8 +251,8 @@ ul {
     position: absolute;
     inset: 0;
     background-image: 
-        linear-gradient(rgba(245, 158, 11, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(245, 158, 11, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(42, 126, 158, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(42, 126, 158, 0.03) 1px, transparent 1px);
     background-size: 60px 60px;
     mask-image: radial-gradient(ellipse at center, black 20%, transparent 70%);
 }
@@ -354,7 +354,7 @@ ul {
 }
 
 .btn-primary:hover {
-    background: var(--color-accent-light);
+    background: var(--color-accent-dark);
     transform: translateY(-2px);
     box-shadow: 0 10px 40px var(--color-accent-glow);
 }
@@ -536,7 +536,7 @@ ul {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(42, 126, 158, 0.2);
 }
 
 .service-icon svg {
@@ -601,9 +601,12 @@ ul {
 
 .about-grid {
     display: grid;
-    grid-template-columns: 1.2fr 0.8fr;
+    grid-template-columns: 1fr;
     gap: var(--space-3xl);
     align-items: start;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .about-content .section-tag,
@@ -754,8 +757,8 @@ ul {
 
 .process-timeline {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--space-lg);
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: var(--space-md);
     position: relative;
 }
 
@@ -797,15 +800,15 @@ ul {
 
 .process-step h3 {
     font-family: var(--font-display);
-    font-size: 1.5rem;
+    font-size: 1.25rem;
     margin-bottom: var(--space-sm);
     letter-spacing: 0.02em;
 }
 
 .process-step p {
-    font-size: 0.9rem;
+    font-size: 0.84rem;
     color: var(--color-text-tertiary);
-    line-height: 1.6;
+    line-height: 1.5;
 }
 
 /* =============================================
@@ -1720,13 +1723,13 @@ textarea:focus-visible {
 .deliverable-icon {
     width: 52px;
     height: 52px;
-    background: linear-gradient(135deg, var(--color-accent-glow) 0%, rgba(245, 158, 11, 0.05) 100%);
+    background: linear-gradient(135deg, var(--color-accent-glow) 0%, rgba(42, 126, 158, 0.05) 100%);
     border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: var(--space-md);
-    border: 1px solid rgba(245, 158, 11, 0.15);
+    border: 1px solid rgba(42, 126, 158, 0.15);
     transition: all var(--transition-base);
 }
 
@@ -1840,7 +1843,7 @@ textarea:focus-visible {
     gap: var(--space-md);
     padding: var(--space-lg);
     background: var(--color-accent-glow);
-    border: 1px solid rgba(245, 158, 11, 0.2);
+    border: 1px solid rgba(42, 126, 158, 0.2);
     border-radius: var(--radius-md);
 }
 
@@ -2670,10 +2673,10 @@ textarea:focus-visible {
     --color-bg-card: #ffffff;
     --color-bg-elevated: #f9fbfd;
 
-    --color-accent: #1671a5;
-    --color-accent-light: #1671a5;
-    --color-accent-dark: #125b84;
-    --color-accent-glow: rgba(22, 113, 165, 0.14);
+    --color-accent: #2A7E9E;
+    --color-accent-light: #2A7E9E;
+    --color-accent-dark: #236A85;
+    --color-accent-glow: rgba(42, 126, 158, 0.15);
 
     --color-text-primary: #1f2933;
     --color-text-secondary: #3f4b57;
@@ -2771,8 +2774,8 @@ body {
 }
 
 .section-tag {
-    background: rgba(22, 113, 165, 0.08);
-    border: 1px solid rgba(22, 113, 165, 0.22);
+    background: rgba(42, 126, 158, 0.08);
+    border: 1px solid rgba(42, 126, 158, 0.22);
     border-radius: 999px;
 }
 
@@ -2886,7 +2889,7 @@ body {
 
 .areas-note {
     background: #f3fbfd;
-    border-color: rgba(22, 113, 165, 0.25);
+    border-color: rgba(42, 126, 158, 0.25);
 }
 
 .form-group input,
@@ -2905,7 +2908,7 @@ select:focus-visible,
 textarea:focus-visible {
     outline: none;
     border-color: var(--color-accent);
-    box-shadow: 0 0 0 3px rgba(22, 113, 165, 0.18);
+    box-shadow: 0 0 0 3px rgba(42, 126, 158, 0.18);
 }
 
 @media (max-width: 768px) {
