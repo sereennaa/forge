@@ -101,6 +101,10 @@ ul {
     padding: 0 var(--container-padding);
 }
 
+.hidden-section {
+    display: none !important;
+}
+
 /* =============================================
    NAVIGATION
    ============================================= */
