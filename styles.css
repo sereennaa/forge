@@ -1100,6 +1100,18 @@ ul {
     text-align: left;
 }
 
+@media (min-width: 1024px) {
+    .contact-grid {
+        grid-template-columns: 1.3fr 1.2fr;
+    }
+
+    .contact-info .section-title {
+        line-height: 1.05;
+        max-width: none;
+        white-space: nowrap;
+    }
+}
+
 .contact-text {
     color: var(--color-text-secondary);
     font-size: 1.05rem;
@@ -1953,12 +1965,15 @@ textarea:focus-visible {
     gap: var(--space-md);
 }
 
-.emergency-contact svg {
-    width: 24px;
-    height: 24px;
+.emergency-contact svg,
+.emergency-contact-icon {
+    width: 26px;
+    height: 26px;
     stroke: #ef4444;
+    color: #ef4444;
     flex-shrink: 0;
-    margin-top: 2px;
+    margin-top: 0.15em;
+    align-self: flex-start;
 }
 
 .emergency-contact strong {
@@ -2455,6 +2470,12 @@ textarea:focus-visible {
         text-align: center;
         align-items: center;
         padding: var(--space-lg);
+    }
+
+    .emergency-contact svg,
+    .emergency-contact-icon {
+        align-self: center;
+        margin-top: 0;
     }
     
     .contact-form-wrapper {
